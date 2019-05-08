@@ -68,7 +68,6 @@ public class Customer {
 			}
 		}
 		public double getPrice(String order) {
-
 		}
 	}
 

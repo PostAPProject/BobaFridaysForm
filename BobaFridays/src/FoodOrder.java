@@ -7,4 +7,5 @@ public class FoodOrder extends T4Order {
 			public FoodOrder(String name, String o, double price) {
 				super(name, o, price);
 			}	
+			
 }

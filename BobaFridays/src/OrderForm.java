@@ -2,8 +2,8 @@ package teaFiveThree;
 import java.util.*;
 public class OrderForm {
 
-	Private ArrayList<T4Order> allOrders = new ArrayList<T4Order>();
-	Private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
+	private ArrayList<T4Order> allOrders = new ArrayList<T4Order>();
+	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

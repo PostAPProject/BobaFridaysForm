@@ -9,4 +9,5 @@ public class MilkTeaOrder extends DrinkOrder {
 
 		public MilkTeaOrder(String name, String o) {
 			
+			
 		}
