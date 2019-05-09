@@ -1,10 +1,8 @@
+//This is not even close to done. Imma change the strings to objects later.
 public class menuItems{
  		private String[] drinks = {};
-		private String[] food = {};
-		private String[] toppings = {};
-		private ArrayList<String> drinksList = new ArrayList<String>();
-		private ArrayList<String> foodList = new ArrayList<String>();
-		private ArrayList<String> toppingsList = new ArrayList<String>();
+		private String[] food = {"French Fries", "Egg Puff", "Fried Flour Bun Wiith Condensed Milk", "Fried Tofu", "Popcorn Chicken", "Fried Popstickers", "Fried Calamari", "Lobster Ball", "Fried Onion Ring", "Sweet Potato Fries", "Fried Cheeese Sticks", "Tea, Egg", "Sample Platter", "Fried Mushrooms", "Fried Spring Roll"};
+		private String[] toppings = {"Pearl", "Agar Pearl", "Aloe", "Coconut Jelly", "Rainbow Jelly", "Coffee Jelly", "Grass Jelly", "Pudding", "Red Bean", "Top Cream"};
 
 		public menuItems(){
 			for(int i = 0; i < drinks.length; i++){
@@ -21,7 +19,7 @@ public class menuItems{
 		}
 
 		public void menu(String userInput, String orderType){
-			ArrayList<String> options;
+			String[] options;
 			if(orderType.equals(“drinks”)){
 				options = drinks;
 			}else if(orderType.equals(“food”)){
