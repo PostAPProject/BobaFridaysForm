@@ -1,4 +1,4 @@
-package teaFiveThree;
+
 import java.util.*;
 public class OrderForm {
 
@@ -17,11 +17,6 @@ public class OrderForm {
 
 	}
 
-	public void orderDrink(String name, String order){
-
-	}
-	//order the drink and add it to the customer’s order list
-
 	public void processCustomer(Customer c) {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
@@ -36,6 +31,7 @@ public class OrderForm {
 		System.out.println("Next Customer!");
 	}
 	
+	//orders the drink and add it to the customer’s order list
 	public T4Order orderDrink(String order) {
 		T4Order orderObject = new T4Order(order);
 		allOrders.add(orderObject);

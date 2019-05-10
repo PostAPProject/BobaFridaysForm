@@ -16,7 +16,11 @@ public class Customer {
 		return name;
 	}
 	
-	public ArrayList<T4Order> getOrders() {
+	public T4Order getOrder(int index) {
+		return customerOrders.get(index);
+	}
+	
+	public ArrayList<T4Order> getAllOrders() {
 		return customerOrders;
 	}
 }
