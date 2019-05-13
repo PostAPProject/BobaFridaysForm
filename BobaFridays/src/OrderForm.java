@@ -14,7 +14,6 @@ public class OrderForm {
 			System.out.println("(print \"quit\" if you want to exit the program)+\n+Name: ");
 		}
 		sc.close();
-
 	}
 
 	public void processCustomer(Customer c) {
