@@ -9,6 +9,12 @@ public class T4Order {
 		order = o;
 		orderPrice = price;
 	}
+	
+	public T4Order(String o, double price) {
+		order = o;
+		orderPrice = price;
+	}
+	
 	public double calculateTax(double orderPrice) {
 		return orderPrice * 1.0875;
 	}
@@ -25,6 +31,4 @@ public class T4Order {
 	public double getPrice() {
 		return orderPrice;
 	}
-	
-	
 }

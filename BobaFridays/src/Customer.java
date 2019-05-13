@@ -24,4 +24,11 @@ public class Customer {
 		return customerOrders;
 	}
 	
+	public String getReceipt() {
+		String answer = name+": \n";
+		for (T4Order t: customerOrders) {
+			answer+=t.getName()+"\t"+t.getPrice()+"\n";
+		}
+		return answer;
+	}
 }
