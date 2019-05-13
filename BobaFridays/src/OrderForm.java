@@ -53,7 +53,7 @@ public class OrderForm {
 	public String printReceipt() {
 		String answer= "";
 		for (Customer c: allCustomers) {
-			answer+=(c.getReceipt()+"\n"+"_____________");
+			answer+=(c.getReceipt()+"\n"+"_____________\n");
 		}
 		return answer;
 	}

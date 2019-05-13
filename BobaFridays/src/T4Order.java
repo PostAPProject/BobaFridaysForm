@@ -31,4 +31,5 @@ public class T4Order {
 	public double getPrice() {
 		return orderPrice;
 	}
+	
 }
