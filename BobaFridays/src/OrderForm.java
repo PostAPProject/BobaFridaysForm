@@ -22,12 +22,31 @@ public class OrderForm {
 	public void processCustomer(Customer c) {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
-		System.out.println("What do you want to order? (Add condiments here as well, ie boba, grass jelly, etc) ");
-		String order = sc.nextLine();
+		System.out.println("What do you want to order (include condiments)? Type \"menu\" to see the menu, or \"remove\" to delete an order. ");
+		String order = sc.nextLine().trim();
+		if (order.toLowerCase().contains("remove")) {
+			System.out.println("For which customer would you like to remove an order? Enter their name here: ");
+			String name = sc.nextLine().trim();
+			for (int i = 0; i< allCustomers.size(); i++) {
+				if (name.equalsIgnoreCase(allCustomers.get(i).getName())) {
+					System.out.println("Enter the number of the order you would like to remove");
+					allCustomers.get(i).removeOrder(sc.nextInt());
+					i=allCustomers.size(); //exit the loop
+				}
+			}
+		}
+		//if customer needs to see a menu
+		if (order.toLowerCase().equals("menu")) {
+			System.out.println("What type of order would you like, food, drink, or toppings?");
+			String type = sc.nextLine().trim();
+			T4Menu.printMenu("notTypo", type);
+			System.out.println("Which item would you like?");
+			order = sc.nextLine();
+		}
 		while (!order.equals("quit")) {
 			c.addOrder(orderItem(order));
 			System.out.println("Print \"done\" if you want to exit, or your next order if you want to keep going");
-			order = sc.next();
+			order = sc.next().trim();
 		}
 		sc.close();
 		System.out.println("Next Customer!");

@@ -12,6 +12,14 @@ public class Customer {
 		customerOrders.add(order);
 	}
 	
+	public void removeOrder(T4Order t) {
+		customerOrders.remove(t);
+	}
+	
+	public void removeOrder(int i) {
+		customerOrders.remove(i);
+	}
+	
 	public String getName() {
 		return name;
 	}
