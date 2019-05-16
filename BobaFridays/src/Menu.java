@@ -75,7 +75,114 @@ public class MenuItems{
 			}
 		}
 		
-		public double getPrice(String order) {
-			return 0.0;
+		public double getPrice(String order, String toppings) {
+			double finalPrice = 0;
+			order = order.toLowerCase();
+			
+			if(order.contains("smoothie")) {
+				finalPrice = 4.25;
+			}else if((order.contains("royal tea") && !order.contains("with cream")) || order.equals("oolong tea")) {
+				if(order.equalsIgnoreCase("jadeite royal tea")) {
+					finalPrice = 3.05;
+				}else {
+					finalPrice = 3.55;
+				}
+			}else if(order.contains("with cream")) {
+				if(order.contains("green tea") || order.contains("chocolate milk")) {
+					finalPrice = 4.05;
+				}else {
+					finalPrice = 3.80;
+				}
+			}else if(order.contains("milk tea") && !order.equals("ginger milk tea")) {
+				
+			}else if(order.contains("tea") && !order.equals("longan red date tea") && !order.equals("green tea with ice cream")) {
+				
+			}else {
+				switch(order) {
+					case "winter melon":
+						finalPrice = 3.55;
+						break;
+					case "winter melon lemon":
+						finalPrice = 3.70;
+						break;
+					case "henry grass jelly":
+						finalPrice = 3.65;
+						break;
+					case "honey aloe":
+						finalPrice = 3.65;
+						break;
+					case "kumquat lemon":
+						finalPrice = 3.55;
+						break;
+					case "ginger tea":
+						finalPrice = 3.70;
+						break;
+					case "ginger milk tea":
+						finalPrice = 3.80;
+						break;
+					case "longan red date tea":
+						finalPrice = 3.70;
+						break;
+					case "elegant rose aloe":
+						finalPrice = 3.70;
+						break;
+					case "green tea with ice cream":
+						finalPrice = 3.70;
+						break;
+					case "french fries":
+						finalPrice = 3.15;
+						break;
+					case "egg puff":
+						finalPrice = 5.45;
+						break;
+					case "fried flour bun with condensed milk":
+						finalPrice = 3.50;
+						break;
+					case "fried tofu":
+						finalPrice = 3.75;
+						break;
+					case "basil popcorn chicken":
+						finalPrice = 5.15;
+						break;
+					case "fried pot stickers":
+						finalPrice = 4.25;
+						break;
+					case "fried calamari":
+						finalPrice = 5.75;
+						break;
+					case "lobster ball":
+						finalPrice = 4.99;
+						break;
+					case "fried onion ring":
+						finalPrice = 3.50;
+						break;
+					case "sweet potato fries":
+						finalPrice = 3.50;
+						break;
+					case "fried cheese stick":
+						finalPrice = 3.75;
+						break;
+					case "tea egg":   //I don't want to deal with the 3 pcs ones (3.25)
+						finalPrice = 1.35;
+						break;
+					case "sample platter":
+						finalPrice = 6.95;
+						break;
+					case "fried mushrooms":
+						finalPrice = 4.50;
+						break;
+					case "fried spring roll":
+						finalPrice = 3.25;
+						break;
+					case "lemon bomb":
+						finalPrice = 3.75;
+						break;
+				}
+			}
+			
+			if(toppings != null) {
+				finalPrice += 0.5;
+			}
+			return finalPrice;
 		}
 }
