@@ -79,10 +79,10 @@ public class MenuItems{
 			double finalPrice = 0;
 			order = order.toLowerCase();
 			
-			if(order.contains("smoothie")) {
+			if(order.contains("smoothie") || order.contains("milkshake")) {
 				finalPrice = 4.25;
 			}else if((order.contains("royal tea") && !order.contains("with cream")) || order.equals("oolong tea")) {
-				if(order.equalsIgnoreCase("jadeite royal tea")) {
+				if(order.equals("jadeite royal tea")) {
 					finalPrice = 3.05;
 				}else {
 					finalPrice = 3.55;
@@ -93,10 +93,88 @@ public class MenuItems{
 				}else {
 					finalPrice = 3.80;
 				}
-			}else if(order.contains("milk tea") && !order.equals("ginger milk tea")) {
-				
-			}else if(order.contains("tea") && !order.equals("longan red date tea") && !order.equals("green tea with ice cream")) {
-				
+			}else if(order.contains("milk")) {
+				switch(order){
+					case "earl grey milk tea":
+						finalPrice = 3.15;
+						break;
+					case "jasmine milk tea":
+						finalPrice = 3.15;
+						break;
+					case "roasted oolong milk tea":
+						finalPrice = 3.15;
+						break;
+					case "thai milk tea":
+						finalPrice = 3.15;
+						break;
+					case "royal fresh milk tea":
+						finalPrice = 3.15;
+						break;
+					case "soy milk tea":
+						finalPrice = 3.40;
+						break;
+					case "almond miilk tea":
+						finalPrice = 3.60;
+						break;
+					case "ginger milk tea":
+						finalPrice = 3.80;
+						break;
+					case "classical rose milk tea":
+						finalPrice = 3.70;
+						break;
+					case "taro pearl milk tea":
+						finalPrice = 3.75;
+						break;
+					case "caramel milk tea":
+						finalPrice = 3.70;
+						break;
+					case "mango milk tea":
+						finanlPrice = 3.70;
+						break;
+					case "okinawa milk tea":
+						finalPrice = 3.85;
+						break;
+					case "caramel ice milk":
+						finalPrice = 3.85;
+						break;
+					case "panda milk tea":
+						finalPrice = 3.80;
+						break;
+					case "lychee milk tea":
+						finalPrice = 3.70;
+						break;
+					case "fried flour bun with condensed milk":
+						finalPrice = 3.50;
+						break;
+					default:
+						finalPrice = 3.65;
+				}
+			}else if(order.contains("tea")) {
+				switch(order){
+					case "earl grey tea":
+						finalPrice = 3.05;
+						break;
+					case "jasmine green tea":
+						finalPrice = 3.05;
+						break;
+					case "roasted oolong tea":
+						finalPrice = 3.05;
+						break;
+					case "ginger tea":
+						finalPrice = 3.70;
+						break;
+					case "longan red date tea":
+						finalPrice = 3.70;
+						break;
+					case "green tea with ice cream":
+						finalPrice = 3.70;
+						break;
+					case "tea egg":   //I don't want to deal with the 3 pcs ones (3.25)
+						finalPrice = 1.35;
+						break;
+					default:
+						finalPrice = 3.55;
+				}
 			}else {
 				switch(order) {
 					case "winter melon":
@@ -114,19 +192,7 @@ public class MenuItems{
 					case "kumquat lemon":
 						finalPrice = 3.55;
 						break;
-					case "ginger tea":
-						finalPrice = 3.70;
-						break;
-					case "ginger milk tea":
-						finalPrice = 3.80;
-						break;
-					case "longan red date tea":
-						finalPrice = 3.70;
-						break;
 					case "elegant rose aloe":
-						finalPrice = 3.70;
-						break;
-					case "green tea with ice cream":
 						finalPrice = 3.70;
 						break;
 					case "french fries":
@@ -134,9 +200,6 @@ public class MenuItems{
 						break;
 					case "egg puff":
 						finalPrice = 5.45;
-						break;
-					case "fried flour bun with condensed milk":
-						finalPrice = 3.50;
 						break;
 					case "fried tofu":
 						finalPrice = 3.75;
@@ -162,9 +225,6 @@ public class MenuItems{
 					case "fried cheese stick":
 						finalPrice = 3.75;
 						break;
-					case "tea egg":   //I don't want to deal with the 3 pcs ones (3.25)
-						finalPrice = 1.35;
-						break;
 					case "sample platter":
 						finalPrice = 6.95;
 						break;
@@ -176,7 +236,6 @@ public class MenuItems{
 						break;
 					case "lemon bomb":
 						finalPrice = 3.75;
-						break;
 				}
 			}
 			
