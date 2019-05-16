@@ -27,10 +27,8 @@ public class MenuItems{
 
 			if(userInput.equals("notTypo")){
 				for(int i = 0; i < options.length; i++){
-					System.out.print(options[i] + "     ");
-					if(i % 5 == 0){
-						System.out.println();
-					}
+					String items = options[i] + "                    ";
+					System.out.println(items.substring(0, 25) + getPrice(options[i], null));
 				}
 				System.out.println();
 			}else{
@@ -42,6 +40,20 @@ public class MenuItems{
 				for(int i = 0; i < options.length; i++){
 					for(int j = 0; j < options[i].length(); j++){
 						for(int k = 0; k < userInput.length(); k++){
+							/*
+							if(userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))){
+								while(userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))){
+									streak++;
+									k++;
+									j++;
+								}
+								if(streak > longestStreak){
+									streak = longestStreak;
+								}
+							}else{
+								streak = 0;
+							}
+							*/
 							if(userInput.charAt(k) == options[i].charAt(j)){
 								if(k >= 1 && j >= 1){
 									if(userInput.charAt(k-1) == options[i].charAt(j-1)){
@@ -67,10 +79,8 @@ public class MenuItems{
 				System.out.println("Num possible: " + possibleInputs.size());
 				
 				for(int i = 0; i < possibleInputs.size(); i++){
-					System.out.print(possibleInputs.get(i) + "     ");
-					if(i % 5 == 0){
-						System.out.println();
-					}
+					String items = possibleInputs.get(i) + "                    ";
+					System.out.println(items.substring(0, 25) + possibleInputs.get(i), null));
 				}
 			}
 		}
