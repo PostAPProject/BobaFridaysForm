@@ -15,21 +15,17 @@ public class T4Order {
 		orderPrice = price;
 	}
 	
-	public double calculateTax(double orderPrice) {
-		return orderPrice * 1.0875;
+	public String getCustomerName() {
+		return customerName;
 	}
-
 	public String toString() {
 		return customerName + ": " + order + "\n Total cost: " + orderPrice;
-	}
-	public String getName() {
-		return customerName;
 	}
 	public String getOrderName() {
 		return order;
 	}
 	public double getPrice() {
-		return orderPrice;
+		return orderPrice * 1.0875;
 	}
-	
 }
+
