@@ -93,7 +93,6 @@ public class OrderForm {
 		}
 		else {
 			orderObject = new FoodOrder(order, menu.getPrice(order, 0));
-			
 		}
 		allOrders.add(orderObject);
 		return orderObject;
