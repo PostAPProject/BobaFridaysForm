@@ -1,60 +1,91 @@
 import java.util.*;
 public class OrderForm {
 	
-	//builds a list of all orders and customers, in order to print receipt
+	//builds a list of all orders and all customers
 	private ArrayList<T4Order> allOrders = new ArrayList<T4Order>();
 	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-	private MenuItems T4Menu = new MenuItems();
+	private MenuItems menu;
 	
-	//accepts a name and assigns it to a new customer
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	//@param: the menu to order from
+	//constructs an order form
+	public OrderForm(MenuItems m) {
+		menu = m;
+	}
+	
+	public void takeOrders() {
+		Scanner console = new Scanner(System.in);
 		System.out.println("Name: ");
-		String name= sc.nextLine();
+		String name = console.nextLine().trim();
 		while (!name.equals("quit")) {		
 			processCustomer(new Customer(name));
 			System.out.println("(print \"quit\" if you want to exit the program)+\n+Name: ");
+			name = console.nextLine().trim();
 		}
-		sc.close();
+		console.close();
 	}
 
 	//accepts orders to add to the customer's receipt
 	public void processCustomer(Customer c) {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
-		System.out.println("What do you want to order (include condiments)? Type \"menu\" to see the menu, or \"remove\" to delete an order. ");
-		String order = sc.nextLine().trim();
-		if (order.toLowerCase().contains("remove")) {
-			System.out.println("For which customer would you like to remove an order? Enter their name here: ");
-			String name = sc.nextLine().trim();
-			for (int i = 0; i< allCustomers.size(); i++) {
-				if (name.equalsIgnoreCase(allCustomers.get(i).getName())) {
-					System.out.println("Enter the number of the order you would like to remove");
-					allCustomers.get(i).removeOrder(sc.nextInt());
-					i=allCustomers.size(); //exit the loop
+		boolean done = false;
+		while (done==false) {
+			System.out.println("Would you like food or drink? Type \"menu\" to see the menu, or \"remove\" to delete a previous order. ");
+			String type = sc.nextLine().trim();
+			if (type.toLowerCase().contains("remove")) { //remove a previous order
+				System.out.println("For which customer would you like to remove an order? Enter their name here: ");
+				String name = sc.nextLine().trim();
+				for (int i = 0; i< allCustomers.size(); i++) {
+					if (name.equalsIgnoreCase(allCustomers.get(i).getName())) { //check if that customer exists
+						System.out.println("Enter the number of the order you would like to remove");
+						allCustomers.get(i).removeOrder(sc.nextInt());
+						i=allCustomers.size(); //exit the loop
+					}
 				}
 			}
-		}
-		//if customer needs to see a menu
-		if (order.toLowerCase().equals("menu")) {
-			System.out.println("What type of order would you like, food, drink, or toppings?");
-			String type = sc.nextLine().trim();
-			T4Menu.printMenu("notTypo", type);
-			System.out.println("Which item would you like?");
-			order = sc.nextLine();
-		}
-		while (!order.equals("quit")) {
-			c.addOrder(orderItem(order));
-			System.out.println("Print \"done\" if you want to exit, or your next order if you want to keep going");
-			order = sc.next().trim();
+			//if customer needs to see a menu
+			else if (type.toLowerCase().contains("menu")) {
+				menu.printMenu("notTypo", type);
+				System.out.println("Would you like food or drink?");
+				type = sc.nextLine().trim();
+			}
+			if (type.equalsIgnoreCase("drink")) {
+				System.out.println("What would you like to order?");
+				c.addOrder(orderItem(sc.nextLine().trim(), true));
+			}
+			if (type.equalsIgnoreCase("food")) {
+				System.out.println("What would you like to order?");
+				c.addOrder(orderItem(sc.nextLine().trim(), false));
+			}
+			else {
+				System.out.println("The type of order you requested does not exist");
+			}
+			System.out.println("Print \"done\" if you are finished ordering, or anything else to order more items");
+			if (sc.nextLine().trim().equalsIgnoreCase("done")) {
+				done = true;
+			}
 		}
 		sc.close();
 		System.out.println("Next Customer!");
 	}
 	
-	//converts the order name into an order object and adds it to the customer’s order list
-	public T4Order orderItem(String order) {
-		T4Order orderObject = new T4Order(order, T4Menu.getPrice(order));
+	//converts the order name into an order object and adds it to the customer's order list
+	public T4Order orderItem(String order, boolean isDrink) {
+		T4Order orderObject;
+		Scanner s = new Scanner(System.in);
+		if (isDrink) {
+			System.out.println("Type \"yes\" if your drink is a type of milk tea");
+			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
+				orderObject = new MilkTeaOrder(order, menu.getPrice(order));
+			}
+			else {
+				orderObject = new DrinkOrder(order, menu.getPrice(order));
+			}
+		}
+		else {
+			orderObject = new FoodOrder(order, menu.getPrice(order));
+			
+		}
 		allOrders.add(orderObject);
 		return orderObject;
 	}
@@ -77,7 +108,3 @@ public class OrderForm {
 		return answer;
 	}
 }
-
-
-
-
