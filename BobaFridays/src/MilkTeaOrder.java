@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class MilkTeaOrder extends DrinkOrder {
+public class TeaOrder extends DrinkOrder {
 		private String customerName;
 		private String order;
 		private ArrayList<String> toppings;
 		private double orderPrice;
 		private boolean isHot;
 
-		public MilkTeaOrder(String name, String o) {
+		public TeaOrder(String name, String o) {
 			super(name, o, t, price);
 			this.isHot = isHot;
 			if(isHot) {
