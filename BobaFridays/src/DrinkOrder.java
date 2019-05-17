@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 
 public class DrinkOrder extends T4Order {
-		private String customerName;
-		private String order;
-		private ArrayList<String> toppings;
-		private double orderPrice;
+		private ArrayList<String> toppings = new ArrayList<String>();
 
-		public DrinkOrder(String name, String o, ArrayList<String> t, double price) {
-			super(name, o, price);
-			toppings = t;
+		public DrinkOrder(String o, ArrayList<String> tops, double price) {
+			super(o, price);
+			toppings = tops;
+			for(@SuppressWarnings("unused") String topping : toppings) {
+				price += 0.50;
+			}
 		}
 		public ArrayList<String> getToppings() {
 			return toppings;
 		}
 		public String toString() {
-			return customerName + ": " + order + " with " + toppings + "\n Total cost: " + orderPrice;
+			return getCustomerName() + ": " + getOrderName() + " with " + toppings + "\n Total cost: " + getPrice();
 		}
 		
 	}
