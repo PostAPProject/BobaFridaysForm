@@ -4,11 +4,11 @@ public class OrderForm {
 	//builds a list of all orders and all customers
 	private ArrayList<T4Order> allOrders = new ArrayList<T4Order>();
 	private ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-	private MenuItems menu;
+	private Menu menu;
 	
 	//@param: the menu to order from
 	//constructs an order form
-	public OrderForm(MenuItems m) {
+	public OrderForm(Menu m) {
 		menu = m;
 	}
 	
@@ -74,16 +74,25 @@ public class OrderForm {
 		T4Order orderObject;
 		Scanner s = new Scanner(System.in);
 		if (isDrink) {
-			System.out.println("Type \"yes\" if your drink is a type of milk tea");
+			ArrayList<String> toppings = new ArrayList<String>();
+			String top = s.nextLine();
+			Menu.printMenu("notTypo", "toppings");
+			System.out.println("Enter a topping you want or \"done\" if you are finished adding toppings");
+			while (!top.trim().equalsIgnoreCase("done")) {
+				toppings.add(top);
+				System.out.println("Enter another topping or \"done\" if you are finished adding toppings");
+				top = s.nextLine();
+			}
+			System.out.println("Type \"yes\" if your drink is a type of tea");
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-				orderObject = new MilkTeaOrder(order, menu.getPrice(order));
+				orderObject = new TeaOrder(order, menu.getPrice(order, toppings.size()), toppings);
 			}
 			else {
-				orderObject = new DrinkOrder(order, menu.getPrice(order));
+				orderObject = new DrinkOrder(order, menu.getPrice(order, toppings.size()), toppings);
 			}
 		}
 		else {
-			orderObject = new FoodOrder(order, menu.getPrice(order));
+			orderObject = new FoodOrder(order, menu.getPrice(order, 0));
 			
 		}
 		allOrders.add(orderObject);
