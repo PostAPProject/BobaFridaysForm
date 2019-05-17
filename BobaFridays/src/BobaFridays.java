@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class BobaFridays {
 	
 	//accepts a name and assigns it to a new customer
