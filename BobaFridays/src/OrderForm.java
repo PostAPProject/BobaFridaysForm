@@ -7,7 +7,7 @@ public class OrderForm {
 	private MenuItems T4Menu = new MenuItems();
 	
 	//accepts a name and assigns it to a new customer
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Name: ");
 		String name= sc.nextLine();
@@ -52,7 +52,7 @@ public class OrderForm {
 		System.out.println("Next Customer!");
 	}
 	
-	//converts the order name into an order object and adds it to the customer’s order list
+	//converts the order name into an order object and adds it to the customerâ€™s order list
 	public T4Order orderItem(String order) {
 		T4Order orderObject = new T4Order(order, T4Menu.getPrice(order));
 		allOrders.add(orderObject);
