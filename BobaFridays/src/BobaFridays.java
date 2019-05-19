@@ -1,7 +1,6 @@
 //This class contains client code to run the OrderForm class
 //@author Jon Lee
 //@version May 19, 2019
-
 public class BobaFridays {
 	
 	//accepts a name and assigns it to a new customer
