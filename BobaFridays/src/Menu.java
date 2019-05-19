@@ -1,6 +1,10 @@
+/*
+ *@author Jakin Chan 
+ *@version 18 May 2019
+ */
+
 import java.util.ArrayList;
 
-//This is not even close to done. Imma change the strings to objects later.
 public class MenuItems{
  		private static String[] drinks = {"Earl Grey Milk Tea", "Jasmine Milk Tea", "Roasted Oolong Milk Tea", "Thai Milk Tea", "Soy Milk Tea", "Almond Milk Tea", "Peal Milk Tea", "Jasmine Milk Tea", "Grass Milk Tea", "Milk Tea with Coffee Jelly", "Milk Tea with Pearl and Coffee Jelly", "Wintermelon Milk Tea", "Potted Milk Tea", "Peppermint Milk Tea", "Classical Rose Milk Tea",
  							"Matcha Wish Fresh Milk", "Grass Jelly With Fresh Milk", "Taro Pearl Milk Tea", "Caramel Milk Tea", "Ballet Chocolate Milk", "French Pudding Milk Tea", "Red Bean Milk Tea", "Sesame Green Milk Tea", "Mango Milk Tea", "Coffee Milk Tea", "Okinawa Milk Tea", "Caramel Ice Milk", "Panda Milk Tea", "Lychee Milk Tea", "Green Tea Topped with Cream",
@@ -11,7 +15,7 @@ public class MenuItems{
 		private static String[] toppings = {"Pearl", "Agar Pearl", "Aloe", "Coconut Jelly", "Rainbow Jelly", "Coffee Jelly", "Grass Jelly", "Pudding", "Red Bean", "Top Cream"};
 
 	public static void main(String[] args) {
-		printMenu("lichee Milk Tea", "drinks");
+		printMenu("fries", "food");
 		//printMenu("notTypo", "drinks");
 	}
 	
@@ -36,51 +40,32 @@ public class MenuItems{
 				}
 				System.out.println();
 			}else{
-				int minPercentage = (int) (userInput.length() * 0.25);
-				//int counter = 0;
+				int minPercentage = (int) (userInput.length() * 0.75);
 				int longestStreak = 0;
 				int streak = 0;
 
 				for(int i = 0; i < options.length; i++){
 					for(int j = 0; j < options[i].length(); j++){
 						for(int k = 0; k < userInput.length(); k++){
-							/*
-							if((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))) && ((k <= userInput.length()) && (j <= options.length))){
-								while((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))) && ((k <= userInput.length()) && (j <= options.length))){
+							if(((k < userInput.length()) && (j < options[i].length())) && ((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
+								while((k < userInput.length() && j < options[i].length()) && ((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
 									streak++;
 									k++;
 									j++;
 								}
 								if(streak > longestStreak){
-									streak = longestStreak;
+									longestStreak = streak;
 								}
 							}else{
 								streak = 0;
-							}
-							*/
-							if(userInput.charAt(k) == options[i].charAt(j)){
-								if(k >= 1 && j >= 1){
-									if(userInput.charAt(k-1) == options[i].charAt(j-1)){
-										streak++;
-										//System.out.print(userInput.charAt(k) + "" + streak + " ");
-										if(streak > longestStreak){
-											longestStreak = streak;
-										}
-									}else{
-										//System.out.print("*");
-										streak = 0;
-									}
-								}
 							}
 						}
 					}
 					if(longestStreak >= minPercentage){
 						possibleInputs.add(options[i]);
-						//System.out.println(streak + " " + options[i]);
 					}
 					longestStreak = 0;
 				}
-				//System.out.println("Num possible: " + possibleInputs.size());
 				System.out.println("Sorry, we don't have " + userInput + ", do you mean:");
 				
 				for(int i = 0; i < possibleInputs.size(); i++){
