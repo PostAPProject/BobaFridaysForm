@@ -13,11 +13,6 @@ public class MenuItems{
  							"Lychee Black Tea", "Honey Green Tea", "Apple Black Tea", "Apple Green Tea", "Osmanthus Oolong Tea", "Lemon Bomb", "Winter Melon", "Winter Melon Lemon", "Honey Aloe", "Honey Grass Jelly", "Kumquat Lemon", "Ginger Tea", "Ginger Milk Tea", "Longan Red Date Tea", "Elegant Rose Aloe", "Green Tea with Ice Cream"};
 		private static String[] food = {"French Fries", "Egg Puff", "Fried Flour Bun With Condensed Milk", "Fried Tofu", "Popcorn Chicken", "Fried Pot Stickers", "Fried Calamari", "Lobster Ball", "Fried Onion Ring", "Sweet Potato Fries", "Fried Cheese Sticks", "Tea, Egg", "Sample Platter", "Fried Mushrooms", "Fried Spring Roll"};
 		private static String[] toppings = {"Pearl", "Agar Pearl", "Aloe", "Coconut Jelly", "Rainbow Jelly", "Coffee Jelly", "Grass Jelly", "Pudding", "Red Bean", "Top Cream"};
-
-	public static void main(String[] args) {
-		printMenu("fries", "food");
-		//printMenu("notTypo", "drinks");
-	}
 	
 	public static void printMenu(String userInput, String orderType){
 			String[] options;
@@ -47,8 +42,8 @@ public class MenuItems{
 				for(int i = 0; i < options.length; i++){
 					for(int j = 0; j < options[i].length(); j++){
 						for(int k = 0; k < userInput.length(); k++){
-							if(((k < userInput.length()) && (j < options[i].length())) && ((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
-								while((k < userInput.length() && j < options[i].length()) && ((userInput.charAt(k) == options[i].charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
+							if(((k < userInput.length()) && (j < options[i].length())) && ((userInput.toLowerCase().charAt(k) == options[i].toLowerCase().charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
+								while((k < userInput.length() && j < options[i].length()) && ((userInput.toLowerCase().charAt(k) == options[i].toLowerCase().charAt(j) || ((userInput.charAt(k) == ' ') && (options[i].charAt(j) == ' '))))){
 									streak++;
 									k++;
 									j++;
