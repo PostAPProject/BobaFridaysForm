@@ -1,3 +1,6 @@
+//This class contains methods which take in and store a series of boba orders by multiple customers
+//@author Jon Lee
+//@version May 19, 2019
 import java.util.*;
 public class OrderForm {
 	
@@ -58,7 +61,7 @@ public class OrderForm {
 				c.addOrder(orderItem(sc.nextLine().trim(), false));
 			}
 			else {
-				System.out.println("The type of order you requested does not exist");
+				System.out.println("The requested type of order does not exist");
 			}
 			System.out.println("Print \"done\" if you are finished ordering, or anything else to order more items");
 			if (sc.nextLine().trim().equalsIgnoreCase("done")) {
@@ -85,10 +88,10 @@ public class OrderForm {
 			}
 			System.out.println("Type \"yes\" if your drink is a type of tea");
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-				orderObject = new TeaOrder(order, menu.getPrice(order, toppings.size()), toppings);
+				orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()));
 			}
 			else {
-				orderObject = new DrinkOrder(order, menu.getPrice(order, toppings.size()), toppings);
+				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, toppings.size()));
 			}
 		}
 		else {

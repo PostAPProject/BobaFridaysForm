@@ -1,3 +1,6 @@
+//This class contains methods which allow a customer to make and store multiple orders
+//@author Jon Lee
+//@version May 19, 2019
 import java.util.ArrayList;
 
 public class Customer {
