@@ -89,7 +89,13 @@ public class OrderForm {
 			}
 			System.out.println("Type \"yes\" if your drink is a type of tea");
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-				orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()));
+				System.out.println("Type \"yes\" if you want hot tea");
+				if (s.nextLine().trim().equalsIgnoreCase("yes")) {
+					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()), true);
+				}
+				else {
+					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()), false);
+				}
 			}
 			else {
 				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, toppings.size()));
