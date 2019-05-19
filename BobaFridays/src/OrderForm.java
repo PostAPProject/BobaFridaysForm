@@ -29,7 +29,7 @@ public class OrderForm {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
 		boolean done = false;
-		while (done==false) {
+		while (!done) {
 			System.out.println("Would you like food or drink? Type \"menu\" to see the menu, or \"remove\" to delete a previous order. ");
 			String type = sc.nextLine().trim();
 			if (type.toLowerCase().contains("remove")) { //remove a previous order
@@ -45,9 +45,9 @@ public class OrderForm {
 			}
 			//if customer needs to see a menu
 			else if (type.toLowerCase().contains("menu")) {
-				menu.printMenu("notTypo", type);
 				System.out.println("Would you like food or drink?");
 				type = sc.nextLine().trim();
+				menu.printMenu("notTypo", type);
 			}
 			if (type.equalsIgnoreCase("drink")) {
 				System.out.println("What would you like to order?");
