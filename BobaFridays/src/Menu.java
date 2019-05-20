@@ -239,4 +239,125 @@ public class Menu{
 			}
 			return finalPrice;
 		}
+	
+		public static double getPrice(String order) {
+			order = order.toLowerCase();
+			
+			if(order.contains("smoothie") || order.contains("milkshake")) {
+				return 4.25;
+			}else if((order.contains("royal tea") && !order.contains("with cream")) || order.equals("oolong tea")) {
+				if(order.equals("jadeite royal tea")) {
+					return 3.05;
+				}else {
+					return 3.55;
+				}
+			}else if(order.contains("with cream")) {
+				if(order.contains("green tea") || order.contains("chocolate milk")) {
+					return 4.05;
+				}else {
+					return 3.80;
+				}
+			}else if(order.contains("milk")) {
+				switch(order){
+					case "earl grey milk tea":
+						return 3.15;
+					case "jasmine milk tea":
+						return 3.15;
+					case "roasted oolong milk tea":
+						return 3.15;
+					case "thai milk tea":
+						return 3.15;
+					case "royal fresh milk tea":
+						return 3.15;
+					case "soy milk tea":
+						return 3.40;
+					case "almond miilk tea":
+						return 3.60;
+					case "ginger milk tea":
+						return 3.80;
+					case "classical rose milk tea":
+						return 3.70;
+					case "taro pearl milk tea":
+						return 3.75;
+					case "caramel milk tea":
+						return 3.70;
+					case "mango milk tea":
+						return 3.70;
+					case "okinawa milk tea":
+						return 3.85;
+					case "caramel ice milk":
+						return 3.85;
+					case "panda milk tea":
+						return 3.80;
+					case "lychee milk tea":
+						return 3.70;
+					case "fried flour bun with condensed milk":
+						return 3.50;
+					default:
+						return 3.65;
+				}
+			}else if(order.contains("tea")) {
+				switch(order){
+					case "earl grey tea":
+						return 3.05;
+					case "jasmine green tea":
+						return 3.05;
+					case "roasted oolong tea":
+						return 3.05;
+					case "ginger tea":
+						return 3.70;
+					case "longan red date tea":
+						return 3.70;
+					case "green tea with ice cream":
+						return 3.70;
+					case "tea egg":   //I don't want to deal with the 3 pcs ones (3.25)
+						return 1.35;
+					default:
+						return 3.55;
+				}
+			}else {
+				switch(order) {
+					case "winter melon":
+						return 3.55;
+					case "winter melon lemon":
+						return 3.70;
+					case "henry grass jelly":
+						return 3.65;
+					case "honey aloe":
+						return 3.65;
+					case "kumquat lemon":
+						return 3.55;
+					case "elegant rose aloe":
+						return 3.70;
+					case "french fries":
+						return 3.15;
+					case "egg puff":
+						return 5.45;
+					case "fried tofu":
+						return 3.75;
+					case "basil popcorn chicken":
+						return 5.15;
+					case "fried pot stickers":
+						return 4.25;
+					case "fried calamari":
+						return 5.75;
+					case "lobster ball":
+						return 4.99;
+					case "fried onion ring":
+						return 3.50;
+					case "sweet potato fries":
+						return 3.50;
+					case "fried cheese stick":
+						return 3.75;
+					case "sample platter":
+						return 6.95;
+					case "fried mushrooms":
+						return 4.50;
+					case "fried spring roll":
+						return 3.25;
+					case "lemon bomb":
+						return 3.75;
+				}
+			}
+		}
 }

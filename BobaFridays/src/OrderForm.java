@@ -96,18 +96,29 @@ public class OrderForm {
 				System.out.println("Enter another topping or \"done\" if you are finished adding toppings");
 				top = s.nextLine();
 			}
+			int sweetness = 100;
+			System.out.println("Enter the sweetness level you want (no percent sign) or \"default\" for 100%");
+			String sweetLevel = s.nextLine().trim();
+			if (!sweetLevel.equalsIgnoreCase("default")) {
+				sweetness = Integer.parseInt(sweetLevel);
+			}
+			int ice = 100;
+			System.out.println("Enter the ice level you want (no percent sign) or \"default\" for 100%");
+			String iceLevel = s.nextLine().trim();
+			if (!iceLevel.equalsIgnoreCase("default")) {
+				ice = Integer.parseInt(iceLevel);
+			}
 			System.out.println("Type \"yes\" if your drink is a type of tea.");
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
+				boolean isHot = false;
 				System.out.println("Type \"yes\" if you want hot tea.");
 				if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), true);
+					isHot = true;
 				}
-				else {
-					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), false);
-				}
+				orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), sweetness, ice, isHot);
 			}
 			else {
-				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, 0));
+				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, 0), sweetness, ice);
 			}
 		}
 		else {
