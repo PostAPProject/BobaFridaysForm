@@ -10,7 +10,7 @@ public class T4Order {
 	
 	public T4Order(String o, double price) {
 		order = o;
-		orderPrice = price;
+		setOrderPrice(price);
 	}
 	
 	public String getCustomerName() {
@@ -21,5 +21,9 @@ public class T4Order {
 	}
 	public double getPrice() {
 		return orderPrice * 1.0875;
+	}
+
+	public void setOrderPrice(double orderPrice) {
+		this.orderPrice = orderPrice;
 	}
 }
