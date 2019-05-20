@@ -1,5 +1,5 @@
 /*
- * @author Daric Zhou
+ * @author Daric Zhou, Jakin Chan, Jon Lee
  * @version May 2019
  * This class stores an order of a drink
  */
@@ -14,10 +14,6 @@ public class DrinkOrder extends T4Order {
 			toppings = tops;
 			sweetnessLevel = sweetness;
 			iceLevel = ice;
-			for(@SuppressWarnings("unused") String topping : toppings) {
-				price += 0.50;
-			}
-			setOrderPrice(price);
 		}
 		
 		public ArrayList<String> getToppings() {
@@ -25,10 +21,11 @@ public class DrinkOrder extends T4Order {
 		}
 		//overrides superclass method by including sweetness and ice
 		public String getOrderName() {
-			return getOrderName() + "and" + sweetnessLevel + "% sweetness, " + iceLevel +  "% ice";
+			return super.getOrderName() + " with " + sweetnessLevel + "% sweetness, " + iceLevel +  "% ice";
 		}
 		public void setOrderPrice(double newPrice) {
 		super.orderPrice = newPrice;
 		
 		}
 }
+
