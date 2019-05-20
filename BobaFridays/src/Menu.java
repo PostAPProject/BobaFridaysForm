@@ -232,24 +232,34 @@ public class Menu{
 						break;
 					case "lemon bomb":
 						finalPrice = 3.75;
+						break;
 					case "Pearl":
 						finalPrice = 0.50;
+						break;
 					case "Agar Pearl":
 						finalPrice = 0.05;
+						break;
 					case "Aloe":
 						finalPrice = 0.50;
+						break;
 					case "Coconut Jelly":
 						finalPrice = 0.50;
+						break;
 					case "Rainbow Jelly":
 						finalPrice = 0.50;
+						break;
 					case "Coffee Jelly":
 						finalPrice = 0.50;
+						break;
 					case "Grass Jelly":
 						finalPrice = 0.50;
+						break;
 					case "Pudding":
 						finalPrice = 0.50;
+						break;
 					case "Red Bean":
 						finalPrice = 0.50;
+						break;
 					case "Top Cream":
 						finalPrice = 0.50;
 				}
