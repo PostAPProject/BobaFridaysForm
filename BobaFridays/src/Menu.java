@@ -249,7 +249,7 @@ public class Menu{
 					case "Pudding":
 						finalPrice = 0.50;
 					case "Red Bean":
-						finalPrice = 0.50:
+						finalPrice = 0.50;
 					case "Top Cream":
 						finalPrice = 0.50;
 				}
@@ -418,7 +418,7 @@ public class Menu{
 					case "Pudding":
 						return 0.50;
 					case "Red Bean":
-						return 0.50:
+						return 0.50;
 					case "Top Cream":
 						return 0.50;
 				}
