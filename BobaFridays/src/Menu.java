@@ -14,8 +14,8 @@ public class Menu{
  							"Lychee Black Tea", "Honey Green Tea", "Apple Black Tea", "Apple Green Tea", "Osmanthus Oolong Tea", "Lemon Bomb", "Winter Melon", "Winter Melon Lemon", "Honey Aloe", "Honey Grass Jelly", "Kumquat Lemon", "Ginger Tea", "Ginger Milk Tea", "Longan Red Date Tea", "Elegant Rose Aloe", "Green Tea with Ice Cream"};
 		private static String[] food = {"French Fries", "Egg Puff", "Fried Flour Bun With Condensed Milk", "Fried Tofu", "Popcorn Chicken", "Fried Pot Stickers", "Fried Calamari", "Lobster Ball", "Fried Onion Ring", "Sweet Potato Fries", "Fried Cheese Sticks", "Tea Egg", "Sample Platter", "Fried Mushrooms", "Fried Spring Roll"};
 		private static String[] toppings = {"Pearl", "Agar Pearl", "Aloe", "Coconut Jelly", "Rainbow Jelly", "Coffee Jelly", "Grass Jelly", "Pudding", "Red Bean", "Top Cream"};
-	//prints out the menu of T4items based on the type: food, drink, or topping
-	public static void printMenu(String userInput, String orderType){
+		//prints out the menu of T4items based on the type: food, drink, or topping
+		public static void printMenu(String userInput, String orderType){
 			String[] options;
 			ArrayList<String> possibleInputs = new ArrayList<String>();
 			
@@ -70,7 +70,30 @@ public class Menu{
 				}
 			}
 		}
+		//checks if the userInput is misspelled 
+		public static boolean checkTypo(String userInput){
+			userInput = userInput.toLowerCase();
+			
+			for(int i = 0; i < drinks.length; i++){
+				if(userInput.equalsIgnoreCase(drinks[i])){
+					return true;
+				}	
+			}
 		
+			for(int i = 0; i < food.length; i++){
+				if(userInput.equalsIgnoreCase(food[i])){
+					return true;
+				}
+			}
+		
+			for(int i = 0; i < toppings.length; i++){
+				if(userInput.equalsIgnoreCase(toppings[i])){
+					return true;
+				}
+			}	
+			return false;
+		}
+
 		public static double getPrice(String order, int numToppings) {
 			double finalPrice = 0;
 			order = order.toLowerCase();
@@ -271,29 +294,6 @@ public class Menu{
 			return finalPrice;
 		}
 	
-		public static boolean checkTypo(String userInput){
-			userInput = userInput.toLowerCase();
-			
-			for(int i = 0; i < drinks.length; i++){
-				if(userInput.equalsIgnoreCase(drinks[i])){
-					return true;
-				}
-			}
-			
-			for(int i = 0; i < food.length; i++){
-				if(userInput.equalsIgnoreCase(food[i])){
-					return true;
-				}
-			}
-			
-			for(int i = 0; i < toppings.length; i++){
-				if(userInput.equalsIgnoreCase(toppings[i])){
-					return true;
-				}
-			}
-			return false;
-		}
-	
 		public static double getPrice(String order) {
 			order = order.toLowerCase();
 			
@@ -433,7 +433,6 @@ public class Menu{
 						return 0.50;
 				}
 			}
-			//return 0.50;
-			return 0;
+			return 0.50;
 		}
 }
