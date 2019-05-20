@@ -25,10 +25,13 @@ public class OrderForm {
 			System.out.println("(Print \"quit\" if you want to exit the program)\nName: ");
 			name = console.nextLine().trim();
 		}
+		System.out.println("Orders:\n" + printAllOrders());
+		System.out.println("Overall total: $" + getTotalPrice());
 		console.close();
 	}
 
 	//accepts orders to add to the customer's receipt
+	@SuppressWarnings("static-access")
 	public void processCustomer(Customer c) {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
@@ -71,21 +74,25 @@ public class OrderForm {
 					c.addOrder(orderItem(sc.nextLine().trim(), false));
 				}
 				else {
-					System.out.println("The requested type of order does not exist.");
+					System.out.println("The requested type of order does not exist. (Pls type either \"food\" or \"drink\")");
 				}
 			}
-			System.out.println("Print \"done\" if you are finished, or anything else to order more items.");
+			System.out.println("Print \"done\" if you are finished, or \"not\" to order more items.");
 			if (sc.nextLine().trim().equalsIgnoreCase("done")) {
 				done = true;
+				System.out.println("Recipt:\n\n" + printReceipt(c) + "\n");
 			}
 		}
 		System.out.println("Next Customer!");
 	}
 	
 	//converts the order name into an order object and adds it to the customer's order list
+	@SuppressWarnings("static-access")
 	public T4Order orderItem(String order, boolean isDrink) {
+		
 		T4Order orderObject;
 		Scanner s = new Scanner(System.in);
+		
 		if (isDrink) {
 			ArrayList<String> toppings = new ArrayList<String>();
 			Menu.printMenu("notTypo", "toppings");
@@ -105,20 +112,22 @@ public class OrderForm {
 			int ice = 100;
 			System.out.println("Enter the ice level you want (no percent sign) or \"default\" for 100%");
 			String iceLevel = s.nextLine().trim();
+			
 			if (!iceLevel.equalsIgnoreCase("default")) {
 				ice = Integer.parseInt(iceLevel);
 			}
 			System.out.println("Type \"yes\" if your drink is a type of tea.");
+			
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
 				boolean isHot = false;
 				System.out.println("Type \"yes\" if you want hot tea.");
 				if (s.nextLine().trim().equalsIgnoreCase("yes")) {
 					isHot = true;
 				}
-				orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), sweetness, ice, isHot);
+				orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()), sweetness, ice, isHot);
 			}
 			else {
-				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, 0), sweetness, ice);
+				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, toppings.size()), sweetness, ice);
 			}
 		}
 		else {
@@ -132,17 +141,21 @@ public class OrderForm {
 	public String printAllOrders() {
 		String answer= "";
 		for (int i=0; i<allOrders.size(); i++) {
-			answer+=(allOrders.get(i).getOrderName()+"\t"+allOrders.get(i).getPrice()+"\n");
+			answer+=(allCustomers.get(i).getName()+ ": " +allOrders.get(i).getOrderName()+": $"+allOrders.get(i).getPrice()+"\n");
 		}
 		return answer;
 	}
 	
 	//prints big receipt separated by each customer
-	public String printReceipt() {
-		String answer= "";
-		for (Customer c: allCustomers) {
-			answer+=(c.getReceipt()+"\n"+"_____________\n");
-		}
+	public String printReceipt(Customer c) {
+		String answer = (c.getReceipt()+"\n"+"_____________\n");
 		return answer;
+	}
+	public double getTotalPrice() {
+		double totalPrice = 0.0;
+		for(int i = 0; i<allOrders.size(); i++) {
+			totalPrice += allOrders.get(i).getPrice();
+		}
+		return totalPrice;
 	}
 }
