@@ -22,7 +22,7 @@ public class OrderForm {
 		String name = console.nextLine().trim();
 		while (!name.equals("quit")) {		
 			processCustomer(new Customer(name));
-			System.out.println("(print \"quit\" if you want to exit the program)+\n+Name: ");
+			System.out.println("(Print \"quit\" if you want to exit the program)\nName: ");
 			name = console.nextLine().trim();
 		}
 		console.close();
@@ -41,35 +41,44 @@ public class OrderForm {
 				String name = sc.nextLine().trim();
 				for (int i = 0; i< allCustomers.size(); i++) {
 					if (name.equalsIgnoreCase(allCustomers.get(i).getName())) { //check if that customer exists
-						System.out.println("Enter the number of the order you would like to remove");
-						allCustomers.get(i).removeOrder(sc.nextInt());
-						i=allCustomers.size(); //exit the loop
+						System.out.println("Enter the number of the order you would like to remove (ex: 1 for the 1st order): ");
+						int index = Integer.parseInt(sc.nextLine().trim())-1; //-1 to convert to zero based indexing
+						if (index < allCustomers.get(i).getAllOrders().size() && index >= 0) {
+							System.out.println("Order has been removed.");
+							allCustomers.get(i).removeOrder(index); 
+							i = allCustomers.size(); //exit the loop
+						}
+						else {
+							System.out.println((index+1)+" is not a valid number of order for Customer "+allCustomers.get(i).getName());
+							i = allCustomers.size(); //exit the loop
+						}
 					}
 				}
 			}
-			//if customer needs to see a menu
-			else if (type.toLowerCase().contains("menu")) {
-				System.out.println("Would you like food or drink?");
-				type = sc.nextLine().trim();
-				menu.printMenu("notTypo", type);
-			}
-			if (type.equalsIgnoreCase("drink")) {
-				System.out.println("What would you like to order?");
-				c.addOrder(orderItem(sc.nextLine().trim(), true));
-			}
-			if (type.equalsIgnoreCase("food")) {
-				System.out.println("What would you like to order?");
-				c.addOrder(orderItem(sc.nextLine().trim(), false));
-			}
 			else {
-				System.out.println("The requested type of order does not exist");
+				//if customer needs to see a menu
+				if (type.toLowerCase().contains("menu")) {
+					System.out.println("Which menu would you like to see, food or drinks?");
+					type = sc.nextLine().trim();
+					menu.printMenu("notTypo", type);
+				}
+				if (type.toLowerCase().contains("drink")) {
+					System.out.println("What would you like to order?");
+					c.addOrder(orderItem(sc.nextLine().trim(), true));
+				}
+				else if (type.toLowerCase().contains("food")) {
+					System.out.println("What would you like to order?");
+					c.addOrder(orderItem(sc.nextLine().trim(), false));
+				}
+				else {
+					System.out.println("The requested type of order does not exist.");
+				}
 			}
-			System.out.println("Print \"done\" if you are finished ordering, or anything else to order more items");
+			System.out.println("Print \"done\" if you are finished, or anything else to order more items.");
 			if (sc.nextLine().trim().equalsIgnoreCase("done")) {
 				done = true;
 			}
 		}
-		sc.close();
 		System.out.println("Next Customer!");
 	}
 	
@@ -79,26 +88,26 @@ public class OrderForm {
 		Scanner s = new Scanner(System.in);
 		if (isDrink) {
 			ArrayList<String> toppings = new ArrayList<String>();
-			String top = s.nextLine();
 			Menu.printMenu("notTypo", "toppings");
 			System.out.println("Enter a topping you want or \"done\" if you are finished adding toppings");
+			String top = s.nextLine();
 			while (!top.trim().equalsIgnoreCase("done")) {
 				toppings.add(top);
 				System.out.println("Enter another topping or \"done\" if you are finished adding toppings");
 				top = s.nextLine();
 			}
-			System.out.println("Type \"yes\" if your drink is a type of tea");
+			System.out.println("Type \"yes\" if your drink is a type of tea.");
 			if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-				System.out.println("Type \"yes\" if you want hot tea");
+				System.out.println("Type \"yes\" if you want hot tea.");
 				if (s.nextLine().trim().equalsIgnoreCase("yes")) {
-					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()), true);
+					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), true);
 				}
 				else {
-					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, toppings.size()), false);
+					orderObject = new TeaOrder(order, toppings, menu.getPrice(order, 0), false);
 				}
 			}
 			else {
-				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, toppings.size()));
+				orderObject = new DrinkOrder(order, toppings, menu.getPrice(order, 0));
 			}
 		}
 		else {
