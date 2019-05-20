@@ -11,7 +11,7 @@ public class TeaOrder extends DrinkOrder {
 			super(o, t, price, sweetness, ice);
 			if(isHot) {
 				price += 0.50;
-				super.setOrderPrice(price);
 			}	
+			super.setOrderPrice(price);
 		}
 }
