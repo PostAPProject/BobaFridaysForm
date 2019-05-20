@@ -17,6 +17,7 @@ public class DrinkOrder extends T4Order {
 			for(@SuppressWarnings("unused") String topping : toppings) {
 				price += 0.50;
 			}
+			setOrderPrice(price);
 		}
 		
 		public ArrayList<String> getToppings() {
@@ -26,4 +27,8 @@ public class DrinkOrder extends T4Order {
 		public String getOrderName() {
 			return getOrderName() + "and" + sweetnessLevel + "% sweetness, " + iceLevel +  "% ice";
 		}
-	}
+		public void setOrderPrice(double newPrice) {
+		super.orderPrice = newPrice;
+		
+		}
+}
