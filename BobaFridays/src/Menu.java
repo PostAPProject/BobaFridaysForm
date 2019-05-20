@@ -244,20 +244,20 @@ public class Menu{
 		public static boolean checkTypo(String userInput){
 			userInput = userInput.toLowerCase();
 			
-			for(int i = 0; i < drinks.size(); i++){
-				if(userInput.equals(drinks(i))){
+			for(int i = 0; i < drinks.length; i++){
+				if(userInput.equals(drinks[i])){
 					return true;
 				}
 			}
 			
-			for(int i = 0; i < food.size(); i++){
-				if(userInput.equals(foods(i))){
+			for(int i = 0; i < food.length; i++){
+				if(userInput.equals(food[i])){
 					return true;
 				}
 			}
 			
-			for(int i = 0; i < toppings.size(); i++){
-				if(userInput.equals(toppings(i))){
+			for(int i = 0; i < toppings.length; i++){
+				if(userInput.equals(toppings[i])){
 					return true;
 				}
 			}
@@ -384,5 +384,6 @@ public class Menu{
 				}
 			}
 			//return 0.50;
+			return 0;
 		}
 }

@@ -68,18 +68,18 @@ public class OrderForm {
 				if (type.toLowerCase().contains("drink")) {
 					System.out.println("What would you like to order?");
 					String drink = sc.nextLine();
-					while(!checkTypo(drink.trim())){
-						printMenu(drink, "drinks");
-						drink = sc.nextLine;
+					while(!menu.checkTypo(drink.trim())){
+						menu.printMenu(drink, "drinks");
+						drink = sc.nextLine();
 					}
 					c.addOrder(orderItem(drink.trim(), true));
 				}
 				else if (type.toLowerCase().contains("food")) {
 					System.out.println("What would you like to order?");
 					String food = sc.nextLine();
-					while(!checkTypo(food.trim())){
-						printMenu(food, "drinks");
-						food = sc.nextLine;
+					while(!menu.checkTypo(food.trim())){
+						menu.printMenu(food, "food");
+						food = sc.nextLine();
 					}
 					c.addOrder(orderItem(food.trim(), false));
 				}
@@ -112,8 +112,8 @@ public class OrderForm {
 				toppings.add(top);
 				System.out.println("Enter another topping or \"done\" if you are finished adding toppings");
 				top = s.nextLine();
-				while(!checkTypo(top) && !top.trim().equalsIgnoreCase("done")){
-					printMenu(top, "toppings");
+				while(!menu.checkTypo(top) && !top.trim().equalsIgnoreCase("done")){
+					menu.printMenu(top, "toppings");
 					top = s.nextLine();
 				}
 			}
