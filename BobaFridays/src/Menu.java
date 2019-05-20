@@ -414,7 +414,7 @@ public class Menu{
 					case "Pearl":
 						return 0.50;
 					case "Agar Pearl":
-						return 0.05;
+						return 0.50;
 					case "Aloe":
 						return 0.50;
 					case "Coconut Jelly":
