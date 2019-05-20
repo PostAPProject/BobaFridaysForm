@@ -245,19 +245,19 @@ public class Menu{
 			userInput = userInput.toLowerCase();
 			
 			for(int i = 0; i < drinks.length; i++){
-				if(userInput.equals(drinks[i])){
+				if(userInput.equalsIgnoreCase(drinks[i])){
 					return true;
 				}
 			}
 			
 			for(int i = 0; i < food.length; i++){
-				if(userInput.equals(food[i])){
+				if(userInput.equalsIgnoreCase(food[i])){
 					return true;
 				}
 			}
 			
 			for(int i = 0; i < toppings.length; i++){
-				if(userInput.equals(toppings[i])){
+				if(userInput.equalsIgnoreCase(toppings[i])){
 					return true;
 				}
 			}
