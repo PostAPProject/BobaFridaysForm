@@ -37,9 +37,15 @@ public class Customer {
 	
 	public String getReceipt() {
 		String answer = name+": \n";
-		for (T4Order t: customerOrders) {
-			answer+=t.getOrderName()+"\t"+t.getPrice()+"\n";
+		double totalPrice = 0.0;
+		
+		for(T4Order t: customerOrders) {
+			totalPrice += t.getPrice();
 		}
+		for (T4Order t: customerOrders) {
+			answer+=t.getOrderName()+": $"+t.getPrice()+"\n";
+		}
+		answer += "Total price: $" + totalPrice;
 		return answer;
 	}
 	
