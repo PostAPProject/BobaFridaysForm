@@ -73,6 +73,7 @@ public class OrderForm {
 						drink = sc.nextLine();
 					}
 					c.addOrder(orderItem(drink.trim(), true));
+					System.out.println("Order completed. ");
 				}
 				else if (type.toLowerCase().contains("food")) {
 					System.out.println("What would you like to order?");
@@ -82,15 +83,16 @@ public class OrderForm {
 						food = sc.nextLine();
 					}
 					c.addOrder(orderItem(food.trim(), false));
+					System.out.println("Order completed. ");
 				}
 				else {
-					System.out.println("The requested type of order does not exist. (Pls type either \"food\" or \"drink\")");
+					System.out.println("The requested type of order does not exist.");
 				}
 			}
 			System.out.println("Print \"done\" if you are finished, or \"not\" to order more items.");
 			if (sc.nextLine().trim().equalsIgnoreCase("done")) {
 				done = true;
-				System.out.println("Recipt:\n\n" + printReceipt(c) + "\n");
+				System.out.println("Receipt:\n\n" + printReceipt(c) + "\n");
 			}
 		}
 		System.out.println("Next Customer!");
