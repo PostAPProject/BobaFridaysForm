@@ -67,11 +67,21 @@ public class OrderForm {
 				}
 				if (type.toLowerCase().contains("drink")) {
 					System.out.println("What would you like to order?");
-					c.addOrder(orderItem(sc.nextLine().trim(), true));
+					String drink = sc.nextLine();
+					while(!checkTypo(drink.trim())){
+						printMenu(drink, "drinks");
+						drink = sc.nextLine;
+					}
+					c.addOrder(orderItem(drink.trim(), true));
 				}
 				else if (type.toLowerCase().contains("food")) {
 					System.out.println("What would you like to order?");
-					c.addOrder(orderItem(sc.nextLine().trim(), false));
+					String food = sc.nextLine();
+					while(!checkTypo(food.trim())){
+						printMenu(food, "drinks");
+						food = sc.nextLine;
+					}
+					c.addOrder(orderItem(food.trim(), false));
 				}
 				else {
 					System.out.println("The requested type of order does not exist. (Pls type either \"food\" or \"drink\")");
@@ -102,6 +112,10 @@ public class OrderForm {
 				toppings.add(top);
 				System.out.println("Enter another topping or \"done\" if you are finished adding toppings");
 				top = s.nextLine();
+				while(!checkTypo(top) && !top.trim().equalsIgnoreCase("done")){
+					printMenu(top, "toppings");
+					top = s.nextLine();
+				}
 			}
 			int sweetness = 100;
 			System.out.println("Enter the sweetness level you want (no percent sign) or \"default\" for 100%");
