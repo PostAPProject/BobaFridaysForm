@@ -21,11 +21,10 @@ public class DrinkOrder extends T4Order {
 		}
 		//overrides superclass method by including sweetness and ice
 		public String getOrderName() {
-			return super.getOrderName() + " with " + sweetnessLevel + "% sweetness, " + iceLevel +  "% ice";
+			return super.getOrderName() + " with " + toppings.toString() + ", " + sweetnessLevel + "% sweetness, " + iceLevel +  "% ice";
 		}
 		public void setOrderPrice(double newPrice) {
 		super.orderPrice = newPrice;
 		
 		}
 }
-

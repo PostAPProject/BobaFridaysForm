@@ -232,6 +232,26 @@ public class Menu{
 						break;
 					case "lemon bomb":
 						finalPrice = 3.75;
+					case "Pearl":
+						finalPrice = 0.50;
+					case "Agar Pearl":
+						finalPrice = 0.05;
+					case "Aloe":
+						finalPrice = 0.50;
+					case "Coconut Jelly":
+						finalPrice = 0.50;
+					case "Rainbow Jelly":
+						finalPrice = 0.50;
+					case "Coffee Jelly":
+						finalPrice = 0.50;
+					case "Grass Jelly":
+						finalPrice = 0.50;
+					case "Pudding":
+						finalPrice = 0.50;
+					case "Red Bean":
+						finalPrice = 0.50:
+					case "Top Cream":
+						finalPrice = 0.50;
 				}
 			}
 			
@@ -381,6 +401,26 @@ public class Menu{
 						return 3.25;
 					case "lemon bomb":
 						return 3.75;
+					case "Pearl":
+						return 0.50;
+					case "Agar Pearl":
+						return 0.05;
+					case "Aloe":
+						return 0.50;
+					case "Coconut Jelly":
+						return 0.50;
+					case "Rainbow Jelly":
+						return 0.50;
+					case "Coffee Jelly":
+						return 0.50;
+					case "Grass Jelly":
+						return 0.50;
+					case "Pudding":
+						return 0.50;
+					case "Red Bean":
+						return 0.50:
+					case "Top Cream":
+						return 0.50;
 				}
 			}
 			//return 0.50;
