@@ -241,6 +241,29 @@ public class Menu{
 			return finalPrice;
 		}
 	
+		public static boolean checkTypo(String userInput){
+			userInput = userInput.toLowerCase();
+			
+			for(int i = 0; i < drinks.size(); i++){
+				if(userInput.equals(drinks(i))){
+					return true;
+				}
+			}
+			
+			for(int i = 0; i < food.size(); i++){
+				if(userInput.equals(foods(i))){
+					return true;
+				}
+			}
+			
+			for(int i = 0; i < toppings.size(); i++){
+				if(userInput.equals(toppings(i))){
+					return true;
+				}
+			}
+			return false;
+		}
+	
 		public static double getPrice(String order) {
 			order = order.toLowerCase();
 			
@@ -360,6 +383,6 @@ public class Menu{
 						return 3.75;
 				}
 			}
-			return 0.50;
+			//return 0.50;
 		}
 }
