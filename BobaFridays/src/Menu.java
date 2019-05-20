@@ -30,7 +30,7 @@ public class Menu{
 
 			if(userInput.equals("notTypo")){
 				for(int i = 0; i < options.length; i++){
-					String items = options[i] + "                                   ";
+					String items = options[i] + "                                        ";
 					System.out.println(items.substring(0, 40) + getPrice(options[i], 0));
 				}
 				System.out.println();
