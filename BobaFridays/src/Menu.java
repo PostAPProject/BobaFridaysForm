@@ -1,6 +1,7 @@
 /*
- *@author Jakin Chan 
+ *@author Jakin Chan, Daric Zhou, Jon Lee
  *@version 18 May 2019
+ *This class contains the entire database of the T4 menu
  */
 
 import java.util.ArrayList;
@@ -11,9 +12,9 @@ public class Menu{
  							"Jadeite Royal Tea Topped with Cream", "Oolong Tea Topped with Cream", "Chocolate Milk Topped With Cream", "Mango Royal Tea Topped With Cream", "Honey Peach Smoothie", "Lemon Smoothie", "Lychee Smoothie", "Passion Fruit Milkshake", "Chocolate Smoothie", "Strawberry Smoothie", "Red Bean Milkshake", "Avacado Smoothie", "Taro Smoothie", 
  							"Apple Smoothie", "Mango Smoothie", "Pineapple Smoothie", "Jadeite Royal Tea", "Passion Fruit Royal Tea", "Grapefruit Royal Tea", "Mango Royal Tea", "Osmanthus Royal Tea", "Royal Tea", "Elegant Rose Royal Tea", "Apple Royal Tea", "Pineapple Royal Tea", "Earl Grey Tea", "Jasmine Green Tea", "Roasted Oolong Tea", "Yogurt Green Tea", 
  							"Lychee Black Tea", "Honey Green Tea", "Apple Black Tea", "Apple Green Tea", "Osmanthus Oolong Tea", "Lemon Bomb", "Winter Melon", "Winter Melon Lemon", "Honey Aloe", "Honey Grass Jelly", "Kumquat Lemon", "Ginger Tea", "Ginger Milk Tea", "Longan Red Date Tea", "Elegant Rose Aloe", "Green Tea with Ice Cream"};
-		private static String[] food = {"French Fries", "Egg Puff", "Fried Flour Bun With Condensed Milk", "Fried Tofu", "Popcorn Chicken", "Fried Pot Stickers", "Fried Calamari", "Lobster Ball", "Fried Onion Ring", "Sweet Potato Fries", "Fried Cheese Sticks", "Tea, Egg", "Sample Platter", "Fried Mushrooms", "Fried Spring Roll"};
+		private static String[] food = {"French Fries", "Egg Puff", "Fried Flour Bun With Condensed Milk", "Fried Tofu", "Popcorn Chicken", "Fried Pot Stickers", "Fried Calamari", "Lobster Ball", "Fried Onion Ring", "Sweet Potato Fries", "Fried Cheese Sticks", "Tea Egg", "Sample Platter", "Fried Mushrooms", "Fried Spring Roll"};
 		private static String[] toppings = {"Pearl", "Agar Pearl", "Aloe", "Coconut Jelly", "Rainbow Jelly", "Coffee Jelly", "Grass Jelly", "Pudding", "Red Bean", "Top Cream"};
-	
+	//prints out the menu of T4items based on the type: food, drink, or topping
 	public static void printMenu(String userInput, String orderType){
 			String[] options;
 			ArrayList<String> possibleInputs = new ArrayList<String>();
@@ -31,7 +32,7 @@ public class Menu{
 			if(userInput.equals("notTypo")){
 				for(int i = 0; i < options.length; i++){
 					String items = options[i] + "                                        ";
-					System.out.println(items.substring(0, 40) + getPrice(options[i], 0));
+					System.out.println(items.substring(0, 40) + getPrice(options[i]));
 				}
 				System.out.println();
 			}else{
@@ -65,7 +66,7 @@ public class Menu{
 				
 				for(int i = 0; i < possibleInputs.size(); i++){
 					String items = possibleInputs.get(i) + "                                   ";
-					System.out.println(items.substring(0, 40) + getPrice(possibleInputs.get(i), 0));
+					System.out.println(items.substring(0, 40) + getPrice(possibleInputs.get(i)));
 				}
 			}
 		}
@@ -178,7 +179,7 @@ public class Menu{
 					case "winter melon lemon":
 						finalPrice = 3.70;
 						break;
-					case "henry grass jelly":
+					case "honey grass jelly":
 						finalPrice = 3.65;
 						break;
 					case "honey aloe":
@@ -217,7 +218,7 @@ public class Menu{
 					case "sweet potato fries":
 						finalPrice = 3.50;
 						break;
-					case "fried cheese stick":
+					case "fried cheese sticks":
 						finalPrice = 3.75;
 						break;
 					case "sample platter":
@@ -321,7 +322,7 @@ public class Menu{
 						return 3.55;
 					case "winter melon lemon":
 						return 3.70;
-					case "henry grass jelly":
+					case "honey grass jelly":
 						return 3.65;
 					case "honey aloe":
 						return 3.65;
@@ -347,7 +348,7 @@ public class Menu{
 						return 3.50;
 					case "sweet potato fries":
 						return 3.50;
-					case "fried cheese stick":
+					case "fried cheese sticks":
 						return 3.75;
 					case "sample platter":
 						return 6.95;
@@ -359,5 +360,6 @@ public class Menu{
 						return 3.75;
 				}
 			}
+			return 0.50;
 		}
 }
