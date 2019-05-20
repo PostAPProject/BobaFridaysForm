@@ -1,5 +1,5 @@
 /*
- * @author Daric Zhou
+ * @author Daric Zhou, Jakin Chan
  * @version May 2019
  * This class stores an order of a food
  */

@@ -1,5 +1,5 @@
 //This class contains methods which take in and store a series of boba orders by multiple customers
-//@author Jon Lee
+//@author Daric Zhou, Jakin Chan, Jon Lee
 //@version May 19, 2019
 import java.util.*;
 

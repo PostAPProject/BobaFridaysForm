@@ -1,5 +1,5 @@
 //This class contains client code to run the OrderForm class
-//@author Jon Lee
+//@author Daric Zhou, Jakin Chan, Jon Lee
 //@version May 19, 2019
 public class BobaFridays {
 	
