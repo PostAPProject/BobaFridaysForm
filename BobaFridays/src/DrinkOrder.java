@@ -1,5 +1,5 @@
 /*
- * @author Daric Zhou, Jakin Chan, Jon Lee
+ * @author Daric Zhou
  * @version May 2019
  * This class stores an order of a drink
  */
