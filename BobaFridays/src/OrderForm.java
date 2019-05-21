@@ -25,7 +25,7 @@ public class OrderForm {
 			System.out.println("(Print \"quit\" if you want to exit the program)\nName: ");
 			name = console.nextLine().trim();
 		}
-		System.out.println("Orders:\n" + printAllOrders());
+		System.out.println("Orders:\n" + printFullReceipt());
 		System.out.println("Overall total: $" + getTotalPrice());
 		console.close();
 	}
@@ -157,7 +157,7 @@ public class OrderForm {
 	public String printAllOrders() {
 		String answer= "";
 		for (int i=0; i<allOrders.size(); i++) {
-			answer+=(allCustomers.get(i).getName()+ ": " +allOrders.get(i).getOrderName()+": $"+allOrders.get(i).getPrice()+"\n");
+			answer+=(allOrders.get(i).getOrderName()+": $"+allOrders.get(i).getPrice()+"\n");
 		}
 		return answer;
 	}
@@ -167,6 +167,15 @@ public class OrderForm {
 		String answer = (c.getReceipt()+"\n"+"_____________\n");
 		return answer;
 	}
+	
+	public String printFullReceipt() {
+		String answer = "";
+		for (int i = 0 ; i < allCustomers.size(); i++) {
+			answer+=printReceipt(allCustomers.get(i));
+		}
+		return answer;
+	}
+	
 	public double getTotalPrice() {
 		double totalPrice = 0.0;
 		for(int i = 0; i<allOrders.size(); i++) {
