@@ -94,7 +94,7 @@ public class Menu{
 			return false;
 		}
 		public static double getPrice(String order, int numToppings){
-			int finalPrice = price(order);
+			double finalPrice = price(order);
 			if(numToppings != 0 ) {
 				finalPrice += 0.5 * numToppings;
 			}
@@ -200,7 +200,7 @@ public class Menu{
 						return 5.45;
 					case "fried tofu":
 						return 3.75;
-					case "basil popcorn chicken":
+					case "popcorn chicken":
 						return 5.15;
 					case "fried pot stickers":
 						return 4.25;
@@ -246,4 +246,5 @@ public class Menu{
 			}
 			return 0.50;
 		}
+
 }
