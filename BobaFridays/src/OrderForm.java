@@ -120,16 +120,16 @@ public class OrderForm {
 				}
 			}
 			int sweetness = 100;
-			System.out.println("Enter the sweetness level you want (no percent sign) or \"default\" for 100%");
+			System.out.println("Enter the sweetness level you want (no percent sign) or press \"Enter\" for 100%");
 			String sweetLevel = s.nextLine().trim();
-			if (!sweetLevel.equalsIgnoreCase("default")) {
+			if (!sweetLevel.equals("")) {
 				sweetness = Integer.parseInt(sweetLevel);
 			}
 			int ice = 100;
-			System.out.println("Enter the ice level you want (no percent sign) or \"default\" for 100%");
+			System.out.println("Enter the ice level you want (no percent sign) or press \"Enter\" for 100%");
 			String iceLevel = s.nextLine().trim();
 			
-			if (!iceLevel.equalsIgnoreCase("default")) {
+			if (!iceLevel.equals("")) {
 				ice = Integer.parseInt(iceLevel);
 			}
 			System.out.println("Type \"yes\" if your drink is a type of tea.");
