@@ -31,7 +31,7 @@ public class OrderForm {
 	}
 
 	//accepts orders to add to the customer's receipt
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access", "resource" })
 	public void processCustomer(Customer c) {
 		allCustomers.add(c);
 		Scanner sc = new Scanner(System.in);
@@ -99,7 +99,7 @@ public class OrderForm {
 	}
 	
 	//converts the order name into an order object and adds it to the customer's order list
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access", "resource" })
 	public T4Order orderItem(String order, boolean isDrink) {
 		
 		T4Order orderObject;
@@ -120,13 +120,13 @@ public class OrderForm {
 				}
 			}
 			int sweetness = 100;
-			System.out.println("Enter the sweetness level you want (no percent sign) or press \"Enter\" for 100%");
+			System.out.println("Enter the sweetness level you want (no percent sign) or leave blank for 100%");
 			String sweetLevel = s.nextLine().trim();
 			if (!sweetLevel.equals("")) {
 				sweetness = Integer.parseInt(sweetLevel);
 			}
 			int ice = 100;
-			System.out.println("Enter the ice level you want (no percent sign) or press \"Enter\" for 100%");
+			System.out.println("Enter the ice level you want (no percent sign) or leave blank for 100%");
 			String iceLevel = s.nextLine().trim();
 			
 			if (!iceLevel.equals("")) {
